@@ -1,0 +1,50 @@
+.recent-activity {
+  max-height: 100%;
+  background-color: white;
+  margin-top: 30px;
+  box-shadow: -2px 15px 42px -18px rgba(0, 0, 0, 0.49);
+  border-radius: 5px;
+}
+
+
+.recent-activity-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 32px;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.all-activity {
+  color: #7e7779;
+}
+
+.recent-activity-bottom {
+  text-align: center;
+  border-top: 1px solid #e4e4e4;
+  padding: 16px;  
+}
+
+.recent-activity-main {
+  display: flex;
+  padding: 16px 32px;
+}
+
+.date-name-amount {
+  display: flex;
+  justify-content: space-between; 
+  width: 100%; 
+  line-height: 1;
+}
+
+.date-name{
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.recent-activity-month {
+  font-size: 14px;
+  color: #7e7779;  
+}
+
+
