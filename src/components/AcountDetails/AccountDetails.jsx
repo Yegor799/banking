@@ -15,10 +15,7 @@ axios.defaults.baseURL = 'https://client.demo.crassu.la';
 const AccountDetails = () => {
 
   const [accounts, setAccounts] = useState(null);
-  const [primary, setPrimary] = useState(null);
-
-
-  console.log(primary)
+  const [primary, setPrimary] = useState(null); 
   
 
   useEffect(() => {
@@ -44,7 +41,6 @@ const AccountDetails = () => {
   
 
   return (
-
     <>      
       {primary ?
     
