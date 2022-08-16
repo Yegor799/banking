@@ -51,6 +51,17 @@
   border-top: 1px solid #e4e4e4;
   padding-top: 16px;
 }
+
+.account-info-currency {
+  display: inline-block;
+  padding: 2px 4px;
+  font-size: 11px;
+  font-weight: 400;
+  border-radius: 4px;
+  background-color: #56d3a2;
+  color: white;
+
+}
  
 
  

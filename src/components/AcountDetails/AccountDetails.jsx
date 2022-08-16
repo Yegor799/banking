@@ -16,6 +16,8 @@ const AccountDetails = () => {
 
   const [accounts, setAccounts] = useState(null);
   const [primary, setPrimary] = useState(null); 
+
+  console.log(accounts)
   
 
   useEffect(() => {
@@ -62,7 +64,7 @@ const AccountDetails = () => {
 
             <div className="account-info-value">
               <div className='account-name-value'>
-                <p>{primary.number}</p>
+                <p>{primary.number} <span className='account-info-currency'>{primary.providerCurrency}</span> </p>
                 <p>{primary.providerNumber}</p>
               </div>
               <p>{primary.providerCurrency}</p>
