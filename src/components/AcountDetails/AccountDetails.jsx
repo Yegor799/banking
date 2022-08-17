@@ -17,8 +17,7 @@ const AccountDetails = () => {
   const [accounts, setAccounts] = useState(null);
   const [primary, setPrimary] = useState(null); 
 
-  console.log(accounts)
-  
+   
 
   useEffect(() => {
     axios.get(`/api/clients/${clientId}/accounts`)
