@@ -7,17 +7,27 @@ export const bankingApi = createApi({
   reducerPath: 'bankingApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://client.demo.crassu.la',
-    // credentials: 'include',
     prepareHeaders: (headers) => {
-    headers.set('Authorization', AUTH_TOKEN);
-    return headers;      
-  },
-  }),  
+      headers.set('Authorization', AUTH_TOKEN);
+      return headers;
+    },
+  }),
   endpoints: (builder) => ({
     getAllAccounts: builder.query({
       query: () => `/api/clients/${clientId}/accounts`,
-    })
+    }),
+    getBalances: builder.query({
+      query: () => `/api/clients/${clientId}/balances`,
+    }),
+    getCurrentAccountInfo: builder.query({
+      query: (accountId) => `/api/clients/${clientId}/accounts/${accountId}`
+    }),
   })
 })
 
-export const { useGetAllAccountsQuery } = bankingApi;
+export const {
+  useGetAllAccountsQuery,
+  useGetBalancesQuery,
+  useGetCurrentAccountInfoQuery
+} = bankingApi;
+

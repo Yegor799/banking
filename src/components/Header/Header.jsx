@@ -1,7 +1,11 @@
 import './Header.css'
 import logo from '../../images/logo.jpeg';
+import { useGetBalancesQuery } from '../../redux/bankingApi';
 
 const Header = () => {
+
+  const { data } = useGetBalancesQuery();
+
   return (
     <div className="header">
       <div className="company-name">
@@ -28,7 +32,7 @@ const Header = () => {
         </div>
         <div className="second-panel-balance">
           <p className='total-balance'>Total balance</p>
-          <p className='amount'>€20,000</p>
+          <p className='amount'>€{data ? data[0].current : 0}</p>
         </div>
       </div>     
 
