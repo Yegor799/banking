@@ -1,6 +1,7 @@
 import './Header.css'
 import logo from '../../images/logo.jpeg';
 import { useGetBalancesQuery } from '../../redux/bankingApi';
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
@@ -14,10 +15,10 @@ const Header = () => {
       </div>
 
       <div className='panel'>
-        <p>Dashboard</p>
+        <Link to='/'>Dashboard</Link>
         <p>Payments & transfers</p>
         <p>Currency exchange</p>
-        <p>Accounts</p>
+        <Link to='/accounts'>Accounts</Link>
         <p>Cards</p>
         <p>Savings</p>
         <p>Settings</p>
