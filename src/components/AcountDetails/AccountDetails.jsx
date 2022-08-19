@@ -4,33 +4,18 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
-import { useGetCurrentAccountInfoQuery } from '../../redux/bankingApi';
+import { useGetCurrentAccountInfoQuery,  useGetAllAccountsQuery} from '../../redux/bankingApi';
 import AccountInfo from '../AccountInfo/AccountInfo';
 
-const AUTH_TOKEN = '7ff7e0139784048a9d56420d0783e5a4';
-const clientId = '1d7f3023-e257-4381-b997-bf56911e821a'
-
-
-axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-axios.defaults.baseURL = 'https://client.demo.crassu.la';
 
 const AccountDetails = () => {
-
-  const [accounts, setAccounts] = useState(null);
+  
   const [primary, setPrimary] = useState(null); 
+  const [current, setCurrent] = useState(primary)
 
   const { data:currentAccount } = useGetCurrentAccountInfoQuery(primary ? primary.number : '');
-
-  console.log(currentAccount)
-  useEffect(() => {
-    axios.get(`/api/clients/${clientId}/accounts`)
-      .then(function (response) {
-        setAccounts(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [])
+  const { data: accounts } = useGetAllAccountsQuery();  
+  
 
   useEffect(() => {
     let primary;
@@ -45,12 +30,12 @@ const AccountDetails = () => {
   
 
   return (
-    <>      
+    <>
       {primary ?
     
         <div className="account-details">
           <div className="account">
-            <p>{primary.name}</p>
+            <p>{primary.name}</p>              
             <p className='details'>Account details</p>
           </div>
       
@@ -83,7 +68,7 @@ const AccountDetails = () => {
               <p>{currentAccount?.balances[0].reserved}</p>
               <p>{currentAccount?.balances[0].available}</p>
             </div> */}
-          </div>      
+          </div>
 
           <div className='account-info-bottom'>
             <p>See all accounts</p>

@@ -28,7 +28,7 @@ const AccountInfo = ({
         </TableHead>
         <TableBody>          
             <TableRow
-             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}            
             >
               <TableCell component="th" scope="row">
                 <p>{number} <span className='account-info-currency'>{providerCurrency}</span> </p>
@@ -47,25 +47,3 @@ const AccountInfo = ({
 }
 
 export default AccountInfo;
-
-
-{/* <div className="account-info">
-            <div className="account-info-head">
-              <p className='accout-name'>Account name</p>
-              <p>Currency</p>
-              <p>Current</p>
-              <p>Reserved</p>
-              <p>Available</p>
-            </div>
-
-            <div className="account-info-value">
-              <div className='account-name-value'>
-                <p>{primary.number} <span className='account-info-currency'>{primary.providerCurrency}</span> </p>
-                <p>{primary.providerNumber}</p>
-              </div>
-              <p>{primary.providerCurrency}</p>
-              <p>{currentAccount?.balances[0].current}</p>
-              <p>{currentAccount?.balances[0].reserved}</p>
-              <p>{currentAccount?.balances[0].available}</p>
-            </div>
-          </div>       */}
