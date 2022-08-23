@@ -1,7 +1,6 @@
 import './Header.css'
 import logo from '../../images/logo.jpeg';
 import { useGetBalancesQuery } from '../../redux/bankingApi';
-import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {

@@ -1,0 +1,8 @@
+.accounts {
+  margin-top: 30px;
+  min-height: 200px;
+  background-color: white;
+  box-shadow: -2px 15px 42px -18px rgba(0, 0, 0, 0.49);
+  border-radius: 5px;
+}
+
