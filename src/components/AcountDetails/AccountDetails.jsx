@@ -1,9 +1,9 @@
 import './AccountDetails.css';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import { Link } from "react-router-dom";
 import { useGetCurrentAccountInfoQuery,  useGetAllAccountsQuery} from '../../redux/bankingApi';
 import AccountInfo from '../AccountInfo/AccountInfo';
 
@@ -11,7 +11,7 @@ import AccountInfo from '../AccountInfo/AccountInfo';
 const AccountDetails = () => {
   
   const [primary, setPrimary] = useState(null); 
-  const [current, setCurrent] = useState(primary)
+  // const [current, setCurrent] = useState(primary)
 
   const { data:currentAccount } = useGetCurrentAccountInfoQuery(primary ? primary.number : '');
   const { data: accounts } = useGetAllAccountsQuery();  
@@ -71,7 +71,7 @@ const AccountDetails = () => {
           </div>
 
           <div className='account-info-bottom'>
-            <p>See all accounts</p>
+            <Link to='/accounts'>See all accounts</Link>
           </div>
 
         </div>

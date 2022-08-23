@@ -20,6 +20,14 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: #212121;
   line-height: 1.4;
-  background-color: #f5f5f5;
-  
+  background-color: #f5f5f5;  
+}
+
+a {
+  text-decoration: none;
+}
+
+
+a:visited {
+  color: inherit;
 }

@@ -52,6 +52,11 @@
   padding: 16px 0 16px;
 }
 
+.second-panel-img {
+  background-image: url(../../images/money.jpg);
+  background-size: cover;  
+}
+
 
  
 

@@ -2,8 +2,13 @@ import './Header.css'
 import logo from '../../images/logo.jpeg';
 import { useGetBalancesQuery } from '../../redux/bankingApi';
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
+
+  let activeStyle = {
+    color: '#56d3a2'
+  };
 
   const { data } = useGetBalancesQuery();
 
@@ -15,10 +20,21 @@ const Header = () => {
       </div>
 
       <div className='panel'>
-        <Link to='/'>Dashboard</Link>
+        <NavLink
+          to='/'
+        style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
+        >Dashboard
+        </NavLink>
         <p>Payments & transfers</p>
         <p>Currency exchange</p>
-        <Link to='/accounts'>Accounts</Link>
+        <NavLink
+          to='/accounts'
+          style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
+        >Accounts</NavLink>
         <p>Cards</p>
         <p>Savings</p>
         <p>Settings</p>
