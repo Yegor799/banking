@@ -12,54 +12,49 @@ import { useGetCurrentAccountInfoQuery } from '../../redux/bankingApi';
 const AccountInfo = ({
   number,
   providerCurrency,
-  providerNumber,
-  // currentBalance,
-  // reservedBalance,
-  // availableBalance
+  providerNumber  
 }) => {
 
-  const { data } = useGetCurrentAccountInfoQuery(number ? number : '');
-
-  console.log(data)
-
+  const { data } = useGetCurrentAccountInfoQuery(number);
+  
   return (
     <div className='account-info'>
-      {data ? 
-      <TableContainer>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Account number</TableCell>
-              <TableCell align="center">Currency</TableCell>
-              <TableCell align="center">Current</TableCell>
-              <TableCell align="center">Reserved</TableCell>
-              <TableCell align="center">Available</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                <p>{number} <span className='account-info-currency'>{providerCurrency}</span> </p>
-                <p>{providerNumber}</p>
-              </TableCell>
-              <TableCell align="center">{providerCurrency}</TableCell>
-              <TableCell align="center">{data.balances.current}</TableCell>
-              <TableCell align="center">{0}</TableCell>
-              <TableCell align="center">{0}</TableCell>
-            </TableRow>
+      {data ?
+        <TableContainer>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Account number</TableCell>
+                <TableCell align="center">Currency</TableCell>
+                <TableCell align="center">Current</TableCell>
+                <TableCell align="center">Reserved</TableCell>
+                <TableCell align="center">Available</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  <p>{number} <span className='account-info-currency'>{providerCurrency}</span> </p>
+                  <p>{providerNumber}</p>
+                </TableCell>
+                <TableCell align="center">{providerCurrency}</TableCell>
+                <TableCell align="center">{data && data.balances.length !== 0 ? data.balances[0].current : 0}</TableCell>
+                <TableCell align="center">{data && data.balances.length !== 0 ? data.balances[0].reserved : 0}</TableCell>
+                <TableCell align="center">{data && data.balances.length !== 0 ? data.balances[0].available : 0}</TableCell>
+              </TableRow>
           
-          </TableBody>
-        </Table>
+            </TableBody>
+          </Table>
         </TableContainer>
-        :   
+        :
         <Box sx={{ width: '100%' }}>
           <LinearProgress />
         </Box>
       }
     </div>
-  );
+  )
 }
 
 export default AccountInfo;

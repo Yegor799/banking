@@ -35,7 +35,7 @@ const AccountDetails = () => {
     
         <div className="account-details">
           <div className="account">
-            <p>{primary.name}</p>              
+            <p>{primary.name}</p>
             <p className='details'>Account details</p>
           </div>
       
@@ -73,7 +73,6 @@ const AccountDetails = () => {
           <div className='account-info-bottom'>
             <Link to='/accounts'>See all accounts</Link>
           </div>
-
         </div>
     
         :

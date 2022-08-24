@@ -9,8 +9,8 @@ const Header = () => {
     color: '#56d3a2'
   };
 
-  const { data } = useGetBalancesQuery();
-
+  const { data } = useGetBalancesQuery();  
+  
   return (
     <div className="header">
       <div className="company-name">
@@ -21,9 +21,9 @@ const Header = () => {
       <div className='panel'>
         <NavLink
           to='/'
-        style={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }
+          style={({ isActive }) =>
+            isActive ? activeStyle : undefined
+          }
         >Dashboard
         </NavLink>
         <p>Payments & transfers</p>
@@ -31,8 +31,8 @@ const Header = () => {
         <NavLink
           to='/accounts'
           style={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }
+            isActive ? activeStyle : undefined
+          }
         >Accounts</NavLink>
         <p>Cards</p>
         <p>Savings</p>
@@ -48,10 +48,9 @@ const Header = () => {
         </div>
         <div className="second-panel-balance">
           <p className='total-balance'>Total balance</p>
-          <p className='amount'>€{data ? data[0].current : 0}</p>
+          <p className='amount'>€{data ? data[0]?.current : 0}</p>
         </div>
-      </div>     
-
+      </div>
     </div>
   )
 }
