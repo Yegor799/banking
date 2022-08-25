@@ -40,7 +40,7 @@ const AccountDetails = () => {
           </div>
       
 
-          <div className="account-info">
+          {/* <div> */}
             {/* <div className="account-info-head">
               <p className='accout-name'>Account name</p>
               <p>Currency</p>
@@ -68,7 +68,7 @@ const AccountDetails = () => {
               <p>{currentAccount?.balances[0].reserved}</p>
               <p>{currentAccount?.balances[0].available}</p>
             </div> */}
-          </div>
+          {/* </div> */}
 
           <div className='account-info-bottom'>
             <Link to='/accounts'>See all accounts</Link>

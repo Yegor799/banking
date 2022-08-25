@@ -1,6 +1,15 @@
 import './RecentActivity.css';
+import { useGetAllTransactionsQuery } from '../../redux/bankingApi';
+import TransactionInfo from '../TransactionInfo/TransactionInfo';
 
 const RecentActivity = () => {
+
+  const { data: transactions } = useGetAllTransactionsQuery();
+
+  console.log(transactions)
+
+  
+
   return (
     <div className='recent-activity'>
 
@@ -9,24 +18,10 @@ const RecentActivity = () => {
         <p className='all-activity'>All activity</p>
       </div>
 
-      <div className='recent-activity-main'>
-        <div className='date-name-amount'>
-          <div className='date-name'>
-            <div>
-              <p className='recent-activity-month'>AUG</p>
-              <p className='recent-activity-day'>11</p>
-            </div>
-            <p>name</p>
-          </div>
-          <div className="amount-time">
-            <p>+€15.00</p>
-            <p>12:37 PM</p>
-          </div>
-
-        </div>
-        
-      </div>
-
+     { transactions && transactions.map(transaction => (
+       <TransactionInfo key={transaction.id} />
+       ))
+}
       <div className="recent-activity-bottom">
         <p>More activity</p>
       </div>

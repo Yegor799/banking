@@ -6,7 +6,6 @@
   border-radius: 5px;
 }
 
-
 .recent-activity-head {
   display: flex;
   justify-content: space-between;
@@ -24,27 +23,6 @@
   padding: 16px;  
 }
 
-.recent-activity-main {
-  display: flex;
-  padding: 16px 32px;
-}
 
-.date-name-amount {
-  display: flex;
-  justify-content: space-between; 
-  width: 100%; 
-  line-height: 1;
-}
-
-.date-name{
-  display: flex;
-  justify-content: space-between;
-  width: 30%;
-}
-
-.recent-activity-month {
-  font-size: 14px;
-  color: #7e7779;  
-}
 
 

@@ -22,12 +22,16 @@ export const bankingApi = createApi({
     getCurrentAccountInfo: builder.query({
       query: (accountId) => `/api/clients/${clientId}/accounts/${accountId}`
     }),
+    getAllTransactions: builder.query({
+      query: () => `/api/clients/${clientId}/transactions`,
+    }),
   })
 })
 
 export const {
   useGetAllAccountsQuery,
   useGetBalancesQuery,
-  useGetCurrentAccountInfoQuery
+  useGetCurrentAccountInfoQuery,
+  useGetAllTransactionsQuery,
 } = bankingApi;
 
