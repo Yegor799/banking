@@ -25,6 +25,9 @@ export const bankingApi = createApi({
     getAllTransactions: builder.query({
       query: () => `/api/clients/${clientId}/transactions`,
     }),
+    getPersonDetails: builder.query({
+      query: () => `/api/clients/${clientId}/person-details`,
+    }),
   })
 })
 
@@ -33,5 +36,6 @@ export const {
   useGetBalancesQuery,
   useGetCurrentAccountInfoQuery,
   useGetAllTransactionsQuery,
+  useGetPersonDetailsQuery,
 } = bankingApi;
 

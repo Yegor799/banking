@@ -1,7 +1,9 @@
-import './Header.css'
+import './Header.css';
+import PersonIcon from '@mui/icons-material/Person';
 import logo from '../../images/logo.jpeg';
-import { useGetBalancesQuery } from '../../redux/bankingApi';
+import { useGetBalancesQuery, useGetPersonDetailsQuery } from '../../redux/bankingApi';
 import { NavLink } from "react-router-dom";
+
 
 const Header = () => {
 
@@ -9,14 +11,28 @@ const Header = () => {
     color: '#56d3a2'
   };
 
-  const { data: balances } = useGetBalancesQuery(); 
+  const { data: balances } = useGetBalancesQuery();
+  const { data: personDetails } = useGetPersonDetailsQuery();
   
+
+  console.log(personDetails)
   
   return (
     <div className="header">
-      <div className="company-name">
-        <img className='logo' src={logo} alt="logo" />
-        <h2>Banking</h2>
+      <div className='header-info'>
+        <div className="company-name">
+          <img className='logo' src={logo} alt="logo" />
+          <h2>Banking</h2>
+        </div>
+
+        <div className='person-details'>
+          <div className="person-icon">
+            <PersonIcon/>
+          </div>
+          
+          <p>{personDetails && personDetails.name}</p>
+        </div>
+        
       </div>
 
       <div className='panel'>

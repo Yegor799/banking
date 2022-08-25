@@ -2,6 +2,26 @@
   margin-top: 20px;
 }
 
+.header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.person-icon{
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  text-align: center;
+  margin-right: 3px;
+}
+
+.person-details {
+  display: flex;
+}
+
 .company-name {
   display: flex;
   align-items: center;
@@ -65,6 +85,3 @@
   font-size: 40px;
 }
 
-.active {
-  color: #56d3a2;
-}
