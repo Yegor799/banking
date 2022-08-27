@@ -26,7 +26,8 @@ const RecentActivity = () => {
          key={transaction.id}
          amount={transaction.amount}
          currency={transaction.currency}
-         createdAt={transactions.createdAt}
+         createdAt={transaction.createdAt}
+         description={transaction.description}
        />
        ))
 }
