@@ -12,8 +12,7 @@ const TransactionInfo = ({ amount, currency, createdAt, description }) => {
   "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];  
 
   useEffect(() => {
-    // let transactionTime;
-    
+        
     if (!createdAt) {
       return
     }
@@ -42,9 +41,7 @@ const TransactionInfo = ({ amount, currency, createdAt, description }) => {
           <p>{amount.toFixed(2)} {currency}</p>
           <p>{hours}:{minutes}</p>
         </div>
-
       </div>
-        
     </div>
   )
 }

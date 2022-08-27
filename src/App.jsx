@@ -1,10 +1,9 @@
 import './App.css';
-import Header from './components/Header/Header';
-import AccountDetails from './components/AcountDetails/AccountDetails';
-import RecentActivity from './components/RecentActivity/RecentActivity';
 import { Routes, Route } from "react-router-dom";
+import Header from './components/Header/Header';
 import MainPage from './pages/MainPage/MainPage';
 import Accounts from './pages/Accounts/Accounts';
+import Payments from './pages/Payments/Payments';
 
 
 function App() {  
@@ -15,8 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='/accounts' element={<Accounts/>} />
-      {/* <AccountDetails />
-      <RecentActivity />   */}
+        <Route path='/payments' element={<Payments/>} />
       </Routes>
     </div>
   );

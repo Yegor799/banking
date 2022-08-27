@@ -1,17 +1,10 @@
 import './RecentActivity.css';
 import { useGetAllTransactionsQuery } from '../../redux/bankingApi';
 import TransactionInfo from '../TransactionInfo/TransactionInfo';
-import { useEffect } from 'react';
 
 const RecentActivity = () => {
 
-  const { data: transactions } = useGetAllTransactionsQuery();
-
-  console.log(transactions);  
-  
-  
-
-  
+  const { data: transactions } = useGetAllTransactionsQuery();   
 
   return (
     <div className='recent-activity'>

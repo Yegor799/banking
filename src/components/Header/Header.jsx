@@ -35,15 +35,19 @@ const Header = () => {
         
       </div>
 
-      <div className='panel'>
+      <div className='header-panel'>
         <NavLink
           to='/'
           style={({ isActive }) =>
             isActive ? activeStyle : undefined
           }
-        >Dashboard
-        </NavLink>
-        <p>Payments & transfers</p>
+        >Dashboard</NavLink>
+        <NavLink
+          to='/payments'
+          style={({ isActive }) =>
+            isActive ? activeStyle : undefined
+          }
+        >Payments & transfers</NavLink>
         <p>Currency exchange</p>
         <NavLink
           to='/accounts'
