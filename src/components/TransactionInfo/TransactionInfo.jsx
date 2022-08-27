@@ -1,6 +1,6 @@
 import './TransactionInfo.css';
 
-const TransactionInfo = () => {
+const TransactionInfo = ({amount, currency, createdAt}) => {
   return (
     <div className='recent-activity-main'>
         <div className='date-name-amount'>
@@ -12,8 +12,8 @@ const TransactionInfo = () => {
             <p>name</p>
           </div>
           <div className="amount-time">
-            <p>+€15.00</p>
-            <p>12:37 PM</p>
+          <p>{amount.toFixed(2)} {currency}</p>
+          <p>12:37 {createdAt?.toLocaleString().slice(-2)}</p>
           </div>
 
         </div>

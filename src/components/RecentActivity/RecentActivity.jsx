@@ -1,12 +1,15 @@
 import './RecentActivity.css';
 import { useGetAllTransactionsQuery } from '../../redux/bankingApi';
 import TransactionInfo from '../TransactionInfo/TransactionInfo';
+import { useEffect } from 'react';
 
 const RecentActivity = () => {
 
   const { data: transactions } = useGetAllTransactionsQuery();
 
-  console.log(transactions)
+  console.log(transactions);  
+  
+  
 
   
 
@@ -19,7 +22,12 @@ const RecentActivity = () => {
       </div>
 
      { transactions && transactions.map(transaction => (
-       <TransactionInfo key={transaction.id} />
+       <TransactionInfo
+         key={transaction.id}
+         amount={transaction.amount}
+         currency={transaction.currency}
+         createdAt={transactions.createdAt}
+       />
        ))
 }
       <div className="recent-activity-bottom">
