@@ -14,8 +14,6 @@ const Header = () => {
   const { data: balances } = useGetBalancesQuery();
   const { data: personDetails } = useGetPersonDetailsQuery();
   
-
-  console.log(personDetails)
   
   return (
     <div className="header">
