@@ -4,7 +4,7 @@ import TableCell from '@mui/material/TableCell';
 const TransactionFullInfo = ({status, date, accountNumber, iban, description, amount, currency}) => {
 
   const transactionStatuses = ['draft', 'pending', 'completed', 'declined']
-  return (    
+  return (
     <>
       <TableCell >{transactionStatuses[status]}</TableCell>
       <TableCell align="right">{new Date(date).toLocaleString()}</TableCell>
@@ -12,7 +12,7 @@ const TransactionFullInfo = ({status, date, accountNumber, iban, description, am
       <TableCell align="right">{iban}</TableCell>
       <TableCell align="right">{description}</TableCell>
       <TableCell align="right">{amount} {currency}</TableCell>
-      </>   
+    </>
   )
 }
 

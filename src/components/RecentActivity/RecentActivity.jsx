@@ -1,5 +1,6 @@
 import './RecentActivity.css';
 import { useGetAllTransactionsQuery } from '../../redux/bankingApi';
+import { Link } from 'react-router-dom';
 import TransactionInfo from '../TransactionInfo/TransactionInfo';
 
 const RecentActivity = () => {
@@ -25,7 +26,7 @@ const RecentActivity = () => {
        ))
 }
       <div className="recent-activity-bottom">
-        <p>More activity</p>
+        <Link to='payments/history'>More activity</Link>
       </div>
       
     </div>

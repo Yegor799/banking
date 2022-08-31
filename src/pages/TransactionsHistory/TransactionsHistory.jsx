@@ -23,21 +23,19 @@ const TransactionsHistory = () => {
           <LinearProgress />
         </Box>
       }
-      
-
 
       {transactions &&
         <div className='transactions-history'>
           <TableContainer>
             <Table aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>Status</TableCell>
-                  <TableCell align="right">Date</TableCell>
-                  <TableCell align="right">Account</TableCell>
-                  <TableCell align="right">Remitter/Beneficiary</TableCell>
-                  <TableCell align="right">Description</TableCell>
-                  <TableCell align="right">Amount</TableCell>
+              <TableHead >
+                <TableRow >
+                  <TableCell sx={{ color: '#7e7779', fontSize: 14, fontWeight: 900 }} >Status</TableCell>
+                  <TableCell sx={{ color: '#7e7779', fontSize: 14, fontWeight: 900 }} align="right">Date</TableCell>
+                  <TableCell sx={{ color: '#7e7779', fontSize: 14, fontWeight: 900 }} align="right">Account</TableCell>
+                  <TableCell sx={{ color: '#7e7779', fontSize: 14, fontWeight: 900 }} align="right">Remitter/Beneficiary</TableCell>
+                  <TableCell sx={{ color: '#7e7779', fontSize: 14, fontWeight: 900 }} align="right">Description</TableCell>
+                  <TableCell sx={{ color: '#7e7779', fontSize: 14, fontWeight: 900 }} align="right">Amount</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -61,11 +59,8 @@ const TransactionsHistory = () => {
               </TableBody>
             </Table>
           </TableContainer>
-          {/* <TransactionFullInfo /> */}
         </div>
       }
-      
-      
     </>
   )
 }

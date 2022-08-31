@@ -1,6 +1,7 @@
 import './Payments.css';
 import { Routes, Route, NavLink } from "react-router-dom";
 import TransactionsHistory from '../TransactionsHistory/TransactionsHistory';
+import SepaPayment from '../SepaPayment/SepaPayment';
 
 const Payments = () => {
 
@@ -32,7 +33,8 @@ const Payments = () => {
       </div>
 
       <Routes>
-        <Route path='/history' element={<TransactionsHistory/>}/>
+        <Route path='/history' element={<TransactionsHistory />} />
+        <Route path='/sepa' element={<SepaPayment/>}/>
       </Routes>
     </>
   )

@@ -1,0 +1,21 @@
+.sepa-payment {
+  margin-top: 30px;
+  
+  padding: 48px 32px 72px;
+  min-height: 300px;
+  background-color: white;
+  box-shadow: -2px 15px 42px -18px rgba(0, 0, 0, 0.49);
+  border-radius: 5px;
+}
+
+.sepa-payment-title {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 48px;  
+  text-align: center; 
+}
+
+.sepa-payment-select {
+  display: flex;
+  justify-content: center;
+}
