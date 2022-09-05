@@ -108,21 +108,24 @@ const SepaPayment = () => {
             <TextField required margin="normal" fullWidth label="You send" variant="standard" value={amount} onChange={handleChangeAmount} />
             <TextField required margin="normal" fullWidth label="Name" variant="standard" value={recipientName} onChange={handleChangeRecipientName} />
             <TextField required margin="normal" fullWidth label="IBAN" variant="standard" value={recipientIban} onChange={handleChangeRecipientIban} />
-            <TextField required margin="normal" fullWidth label="Swift" variant="standard" value={recipientSwift} onChange={handleChangeRecipientSwift}/>
+            <TextField required margin="normal" fullWidth label="Swift" variant="standard" value={recipientSwift} onChange={handleChangeRecipientSwift} />
             {/* <TextField required margin="normal" fullWidth label="Address" variant="standard" />
             <TextField required margin="normal" fullWidth label="City" variant="standard" />
             <TextField required margin="normal" fullWidth label="State" variant="standard" />
             <TextField required margin="normal" fullWidth label="Postal code" variant="standard" />
             <TextField required margin="normal" fullWidth label="Country" variant="standard" /> */}
-            <TextField required margin="normal" fullWidth label="Description" variant="standard" value={details} onChange={handleChangeDetails}/>
+            <TextField required margin="normal" fullWidth label="Description" variant="standard" value={details} onChange={handleChangeDetails} />
             {/* </Box> */}
               
-            <Input fullWidth type='submit'></Input>
+            
+              
+              <Button sx={{marginTop: 5, backgroundColor: '#3ac690', '&:hover':{backgroundColor:'#3ac690'}}} fullWidth type='submit' variant="contained">Send</Button>
+            
           </Box>
         </div>
       }
     </div>
-  )
+  );
 }
 
 export default SepaPayment;
