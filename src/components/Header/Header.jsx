@@ -25,7 +25,7 @@ const Header = () => {
 
         <div className='person-details'>
           <div className="person-icon">
-            <PersonIcon/>
+            <PersonIcon />
           </div>
           
           <p>{personDetails && personDetails.name}</p>

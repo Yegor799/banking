@@ -16,6 +16,9 @@
 }
 
 .sepa-payment-select {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
+  margin: 0 auto;
+  width: 33%;
+  
 }
