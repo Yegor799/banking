@@ -29,9 +29,6 @@ const SepaPayment = () => {
   const [succeessfulPayment, setSucceessfulPayment] = useState(null);
   const [paymentWithError, setPaymentWithError] = useState(null);  
   const [isActive, setIsActive] = useState(false);
-
-  // console.log(succeessfulPayment)
-
   
   
   const { data: accounts, isLoading } = useGetAllAccountsQuery();  
