@@ -3,17 +3,20 @@ import { useState, useEffect } from 'react';
 import { useGetAllAccountsQuery } from '../../redux/bankingApi';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Input from '@mui/material/Input';
 import TextField from '@mui/material/TextField';
 import CircularProgress from '@mui/material/CircularProgress';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Backdrop from '@mui/material/Backdrop';
 import { sepaPayment } from '../../api/api';
+import Modal from '../../components/Modal/Modal';
+
 
 const SepaPayment = () => {
 
+  const [euroAccounts, setEuroAccounts] = useState(null);
   const [fromAccount, setFromAccount] = useState('');
   const [amount, setAmount] = useState(''); 
   const [recipientName, setRecipientName] = useState('');
@@ -21,11 +24,17 @@ const SepaPayment = () => {
   const [details, setDetails] = useState('');
   const [currency, setCurrency] = useState('EUR');
   const [beneficiaryType, setBeneficiaryType] = useState(1);
-  const [recipientSwift, setRecipientSwift] = useState('')
+  const [recipientSwift, setRecipientSwift] = useState('');
+
+  const [succeessfulPayment, setSucceessfulPayment] = useState(null);
+  const [paymentWithError, setPaymentWithError] = useState(null);  
+  const [isActive, setIsActive] = useState(false);
+
+  // console.log(succeessfulPayment)
 
   
-  const { data: accounts, isLoading } = useGetAllAccountsQuery();
-  const [euroAccounts, setEuroAccounts] = useState(null);
+  
+  const { data: accounts, isLoading } = useGetAllAccountsQuery();  
 
   useEffect(() => {
     if (!accounts) {
@@ -33,8 +42,13 @@ const SepaPayment = () => {
     }
 
     setEuroAccounts(accounts.filter(account => account.providerCurrency === 'EUR'))
-  }, [accounts]);
- 
+  }, [accounts]); 
+
+  useEffect(() => {
+    if (succeessfulPayment || paymentWithError) {
+      setIsActive(true)
+    }    
+  }, [succeessfulPayment, paymentWithError]);
 
   const handleChange = (e) => {
       setFromAccount(e.target.value)
@@ -62,8 +76,18 @@ const SepaPayment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    sepaPayment(fromAccount,currency, amount, recipientName, recipientIban, details, beneficiaryType, recipientSwift);
+    sepaPayment(fromAccount, currency, amount, recipientName, recipientIban, details, beneficiaryType, recipientSwift)
+      .then(res => {
+        setSucceessfulPayment(res)
+      })
+      .catch(err => {
+      setPaymentWithError(err)
+    })
   }
+
+  const handleClose = () => {
+    setIsActive(false);
+  };
 
   return (
     <div className='sepa-payment'>
@@ -88,7 +112,6 @@ const SepaPayment = () => {
                 onChange={handleChange}
                 sx={{ marginBottom: 5 }}
               >
-                
 
                 {euroAccounts.map(account => (
                   <MenuItem key={account.number} value={account.number}>
@@ -98,34 +121,29 @@ const SepaPayment = () => {
                 ))}
               </Select>
             </FormControl>
-
-            {/* <Box
-              component="form"
-              noValidate
-              autoComplete="off"
-            > */}
               
             <TextField required margin="normal" fullWidth label="You send" variant="standard" value={amount} onChange={handleChangeAmount} />
             <TextField required margin="normal" fullWidth label="Name" variant="standard" value={recipientName} onChange={handleChangeRecipientName} />
             <TextField required margin="normal" fullWidth label="IBAN" variant="standard" value={recipientIban} onChange={handleChangeRecipientIban} />
             <TextField required margin="normal" fullWidth label="Swift" variant="standard" value={recipientSwift} onChange={handleChangeRecipientSwift} />
-            {/* <TextField required margin="normal" fullWidth label="Address" variant="standard" />
-            <TextField required margin="normal" fullWidth label="City" variant="standard" />
-            <TextField required margin="normal" fullWidth label="State" variant="standard" />
-            <TextField required margin="normal" fullWidth label="Postal code" variant="standard" />
-            <TextField required margin="normal" fullWidth label="Country" variant="standard" /> */}
             <TextField required margin="normal" fullWidth label="Description" variant="standard" value={details} onChange={handleChangeDetails} />
-            {/* </Box> */}
               
-            
-              
-              <Button sx={{marginTop: 5, backgroundColor: '#3ac690', '&:hover':{backgroundColor:'#3ac690'}}} fullWidth type='submit' variant="contained">Send</Button>
+            <Button sx={{ marginTop: 5, backgroundColor: '#3ac690', '&:hover': { backgroundColor: '#3ac690' } }} fullWidth type='submit' variant="contained">Send</Button>
             
           </Box>
+
+          <Backdrop
+            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={isActive}
+            onClick={handleClose}
+          >
+            {paymentWithError && <Modal error={true} />}
+            {succeessfulPayment && <Modal error={false} />}
+          </Backdrop>
         </div>
       }
     </div>
-  );
+  )
 }
 
 export default SepaPayment;
