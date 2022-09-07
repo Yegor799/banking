@@ -10,8 +10,7 @@ import AccountInfo from '../AccountInfo/AccountInfo';
 
 const AccountDetails = () => {
   
-  const [primary, setPrimary] = useState(null); 
-  // const [current, setCurrent] = useState(primary)
+  const [primary, setPrimary] = useState(null);   
 
   const { data:currentAccount } = useGetCurrentAccountInfoQuery(primary ? primary.number : '');
   const { data: accounts } = useGetAllAccountsQuery();  
@@ -38,37 +37,15 @@ const AccountDetails = () => {
             <p>{primary.name}</p>
             <p className='details'>Account details</p>
           </div>
-      
-
-          {/* <div> */}
-            {/* <div className="account-info-head">
-              <p className='accout-name'>Account name</p>
-              <p>Currency</p>
-              <p>Current</p>
-              <p>Reserved</p>
-              <p>Available</p>
-            </div> */}
-
-            <AccountInfo
-              number={primary.number}
-              providerCurrency={primary.providerCurrency}
-              providerNumber={primary.providerNumber}
-              currentBalance={currentAccount?.balances[0].current}
-              reservedBalance={currentAccount?.balances[0].reserved}
-              availableBalance={currentAccount?.balances[0].available}
-            />
-
-            {/* <div className="account-info-value">
-              <div className='account-name-value'>
-                <p>{primary.number} <span className='account-info-currency'>{primary.providerCurrency}</span> </p>
-                <p>{primary.providerNumber}</p>
-              </div>
-              <p>{primary.providerCurrency}</p>
-              <p>{currentAccount?.balances[0].current}</p>
-              <p>{currentAccount?.balances[0].reserved}</p>
-              <p>{currentAccount?.balances[0].available}</p>
-            </div> */}
-          {/* </div> */}
+          
+          <AccountInfo
+            number={primary.number}
+            providerCurrency={primary.providerCurrency}
+            providerNumber={primary.providerNumber}
+            currentBalance={currentAccount?.balances[0].current}
+            reservedBalance={currentAccount?.balances[0].reserved}
+            availableBalance={currentAccount?.balances[0].available}
+          />
 
           <div className='account-info-bottom'>
             <Link to='/accounts'>See all accounts</Link>

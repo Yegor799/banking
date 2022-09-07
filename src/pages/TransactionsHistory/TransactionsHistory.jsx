@@ -53,7 +53,6 @@ const TransactionsHistory = () => {
                       amount={transaction.amount}
                       currency={transaction.currency}
                     />
-
                   </TableRow>
                 ))}
               </TableBody>

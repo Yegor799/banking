@@ -1,6 +1,6 @@
 .payments {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 30px 0;
   padding: 10px 32px;
   background-color: white;  

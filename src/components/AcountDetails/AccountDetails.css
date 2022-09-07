@@ -10,8 +10,7 @@
   display: flex;
   justify-content: space-between;
   padding: 16px 32px;
-  border-bottom: 1px solid #e4e4e4;
-  
+  border-bottom: 1px solid #e4e4e4;  
 }
 
 .details {
@@ -19,31 +18,9 @@
   color: #7e7779;
 }
 
-.account-info {
-  /* display: flex;
-  justify-content: space-between; */
-  padding: 16px 32px 60px;
-  /* color: #7e7779;
-  font-size: 14px;
-  font-weight: 400; */
+.account-info {  
+  padding: 16px 32px 60px;  
 }
-
-/* .account-info-head,
-.account-info-value {
-  display: flex;
-  justify-content: space-between;
-  color: #7e7779;
-  padding: 0 0 24px;
-} */
-
-/* .account-info-value {
-  color: #212121;
-} */
-
-/* .accout-name,
-.account-name-value {
-  width: 20%;
-} */
 
 .account-info-bottom {
   text-align: center;

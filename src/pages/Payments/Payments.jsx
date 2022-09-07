@@ -24,17 +24,11 @@ const Payments = () => {
             isActive ? activeStyle : undefined
           }
         >European</NavLink>
-        <NavLink
-          to='/payments/swift'
-          style={({ isActive }) =>
-            isActive ? activeStyle : undefined
-          }
-        >International</NavLink>
       </div>
 
       <Routes>
         <Route path='/history' element={<TransactionsHistory />} />
-        <Route path='/sepa' element={<SepaPayment/>}/>
+        <Route path='/sepa' element={<SepaPayment />} />
       </Routes>
     </>
   )

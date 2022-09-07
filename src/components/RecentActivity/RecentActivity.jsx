@@ -15,16 +15,16 @@ const RecentActivity = () => {
         <p className='all-activity'>All activity</p>
       </div>
 
-     { transactions && transactions.map(transaction => (
-       <TransactionInfo
-         key={transaction.id}
-         amount={transaction.amount}
-         currency={transaction.currency}
-         createdAt={transaction.createdAt}
-         description={transaction.description}
-       />
-       ))
-}
+      {transactions && transactions.map(transaction => (
+        <TransactionInfo
+          key={transaction.id}
+          amount={transaction.amount}
+          currency={transaction.currency}
+          createdAt={transaction.createdAt}
+          description={transaction.description}
+        />
+      ))
+      }
       <div className="recent-activity-bottom">
         <Link to='payments/history'>More activity</Link>
       </div>

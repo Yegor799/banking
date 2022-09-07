@@ -12,8 +12,7 @@ const Header = () => {
   };
 
   const { data: balances } = useGetBalancesQuery();
-  const { data: personDetails } = useGetPersonDetailsQuery();
-  
+  const { data: personDetails } = useGetPersonDetailsQuery();  
   
   return (
     <div className="header">
@@ -30,7 +29,6 @@ const Header = () => {
           
           <p>{personDetails && personDetails.name}</p>
         </div>
-        
       </div>
 
       <div className='header-panel'>
@@ -46,24 +44,23 @@ const Header = () => {
             isActive ? activeStyle : undefined
           }
         >Payments & transfers</NavLink>
-        <p>Currency exchange</p>
         <NavLink
           to='/accounts'
           style={({ isActive }) =>
             isActive ? activeStyle : undefined
           }
         >Accounts</NavLink>
-        <p>Cards</p>
-        <p>Savings</p>
-        <p>Settings</p>
       </div>
 
       <div className="second-panel">
         <div className="second-panel-img"></div>
         <div className="second-panel-account">
-          <p>New account</p>
-          <p>Add funds</p>
-          <p>Transfer money</p>
+          <NavLink
+            to='/payments'
+            style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
+          >Transfer money</NavLink>
         </div>
         <div className="second-panel-balance">
           <p className='total-balance'>Total balance</p>

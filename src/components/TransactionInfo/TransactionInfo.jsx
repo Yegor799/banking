@@ -24,8 +24,7 @@ const TransactionInfo = ({ amount, currency, createdAt, description }) => {
     setHours(transactionTime.getHours());
     setMinutes(transactionTime.getMinutes());
    
-  }, [createdAt])
-  
+  }, [createdAt])  
 
   return (
     <div className='recent-activity-main'>
