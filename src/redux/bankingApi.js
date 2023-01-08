@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const clientId = '074e7842-be8a-4ee3-9659-6b0122fb1382';
-const AUTH_TOKEN = '8122d42815d3c04b66531e59fd9ce98b';
+const clientId = '7582c092-497f-412e-8e55-d5062a8a5b3b';
+const AUTH_TOKEN = 'adff2dbd3352cf46f64dc1a2c1d84b81';
 
 export const bankingApi = createApi({
   reducerPath: 'bankingApi',
